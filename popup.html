@@ -1,0 +1,54 @@
+<html>
+  <head><title>My First Chrome Extension</title></head>
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" href="fontawesome.min.css">
+  <style>
+    body {
+      width: 800px;
+      font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+      font-size: 100%;
+    }
+    a, a:focus {
+      display: inline-block;
+      outline: none;
+    }
+    .container-rp {
+      width: 95%;
+      margin: 10px 10px 10px 10px;
+    }
+    #tag {
+      min-width: 500px;
+    }
+    .image {
+      max-width: 200px;
+    }
+    #content {
+      text-align: center;
+    }
+  </style>
+  <body>
+    <div class="container-rp">
+      <form>
+        <div class="form-group row">
+          <label for="colFormLabel" class="col-sm-2 col-form-label">Achievements</label>
+          <div class="col-sm-10">
+            <input type="email" class="form-control" id="colFormLabel" placeholder="Achievement & Progress">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="colFormLabel" class="col-sm-2 col-form-label">Next day plan</label>
+          <div class="col-sm-10">
+            <input type="email" class="form-control" id="colFormLabel" placeholder="Next day plan">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="colFormLabel" class="col-sm-2 col-form-label">Issues</label>
+          <div class="col-sm-10">
+            <input type="email" class="form-control" id="colFormLabel" placeholder="Issues and Free Comment">
+          </div>
+        </div>
+      </form>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>

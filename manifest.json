@@ -1,0 +1,13 @@
+{
+  "name": "Test",
+  "description": "Test",
+  "version": "1.0",
+  "browser_action": {
+    "default_icon": "yao.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "https://www.chatwork.com/"
+  ],
+  "manifest_version": 2
+}
