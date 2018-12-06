@@ -7,7 +7,11 @@
     "default_popup": "popup.html"
   },
   "permissions": [
-    "https://www.chatwork.com/"
+    "*://checkin.bap.jp/*"
   ],
+  "background": {
+    "scripts": ["jquery.min.js", "popup.js"],
+    "persistent": false
+  },
   "manifest_version": 2
 }

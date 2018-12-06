@@ -16,11 +16,24 @@
 //   var imageData = await getGifUrl();
 //   renderImage('<a href="' + imageData.url + '" target="_blank"><img class="image img-responsive img-rounded" src="' + imageData.fixed_height_small_url + '" /></a>');
 // });
+// $(function () {
+//     $("#btn-add-cw").click(function () {
+//         $('.claim-button').click()
+//         console.log("done");
+//     });
+// });
 $(function () {
-    $("#btn-add-cw").click(function () {
-       var achievement = $('#achievement').val();
-       var plan = $('#plan').val();
-       var issues = $('#issues').val();
-       console.log(achievement);
-    });
+    setInterval(function(){ runscript(); }, 600000);
 });
+
+
+function runscript(){
+    var date = new Date();
+    var hour = date.getHours();
+    var minute = date.getMinutes();
+    if(hour == 7 && 59 >= minute >= 20 ){
+        chrome.tabs.executeScript(null, { file: "jquery.min.js" }, function() {
+            chrome.tabs.executeScript(null, { code: "$('.claim-button').click()" });
+        });
+    }
+}
