@@ -7,7 +7,7 @@
     "default_popup": "popup.html"
   },
   "permissions": [
-    "*://checkin.bap.jp/*"
+    "*://*/*"
   ],
   "background": {
     "scripts": ["jquery.min.js", "popup.js"],

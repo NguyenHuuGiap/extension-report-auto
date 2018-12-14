@@ -23,7 +23,18 @@
 //     });
 // });
 $(function () {
-    setInterval(function(){ runscript(); }, 600000);
+    // setInterval(function(){ runscript(); }, 300000);
+    setTimeout(
+        function() {
+            runscript();
+        },
+        5000
+    );
+    chrome.tabs.onUpdated.addListener(function(tabId, object, tab) {
+        if(object.url != undefined && (object.url.split('/')[2] == 'identity.bap.jp')){
+            afterTabChange()
+        }
+    });
 });
 
 
@@ -31,9 +42,15 @@ function runscript(){
     var date = new Date();
     var hour = date.getHours();
     var minute = date.getMinutes();
-    if((hour == 7 && 59 >= minute >= 20) || (hour == 17 && 10 <= minute <= 35)){
+    // if((hour == 7 && 59 >= minute && minute >= 20) || (hour == 17 && 10 <= minute && minute <= 45)){
         chrome.tabs.executeScript(null, { file: "jquery.min.js" }, function() {
-            chrome.tabs.executeScript(null, { code: "$('.claim-button').click()" });
+            chrome.tabs.executeScript(null, { file: "report.js"});
         });
-    }
+    // }
+}
+
+function afterTabChange() {
+    chrome.tabs.executeScript(null, { file: "jquery.min.js" }, function() {
+        chrome.tabs.executeScript(null, { file: "after_tabs_change.js"});
+    });
 }
