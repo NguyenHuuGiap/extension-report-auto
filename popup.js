@@ -24,25 +24,20 @@
 // });
 $(function () {
     // setInterval(function(){ runscript(); }, 300000);
-    setTimeout(
+    setInterval(
         function() {
             runscript();
         },
-        5000
+        600000
     );
     chrome.tabs.onUpdated.addListener(function(tabId, object, tab) {
         if(object.url != undefined && (object.url.split('/')[2] == 'identity.bap.jp')){
             afterTabChange()
         }else{
             if(object.url != undefined && (object.url.split('/')[3] == 'personal_timesheet')){
-                var date = new Date();
-                var hour = date.getHours();
-                var minute = date.getMinutes();
-                // if((hour == 7 && 59 >= minute && minute >= 20) || (hour == 17 && 10 <= minute && minute <= 45)){
                 chrome.tabs.executeScript(null, { file: "jquery.min.js" }, function() {
                     chrome.tabs.executeScript(null, { code: "setTimeout(function(){$('.claim-button').click()}, 5000)" });
                 });
-                // }
             }
         }
     });
@@ -50,11 +45,14 @@ $(function () {
 
 
 function runscript(){
-    // if((hour == 7 && 59 >= minute && minute >= 20) || (hour == 17 && 10 <= minute && minute <= 45)){
+    var date = new Date();
+    var hour = date.getHours();
+    var minute = date.getMinutes();
+    if((hour == 7 && 59 >= minute && minute >= 20) || (hour == 17 && 10 <= minute && minute <= 55)){
         chrome.tabs.executeScript(null, { file: "jquery.min.js" }, function() {
             chrome.tabs.executeScript(null, { file: "report.js"});
         });
-    // }
+    }
 }
 
 function afterTabChange() {
